@@ -106,10 +106,12 @@ addValues([15, 10, 15, 5]); // => 45
 // challenge 10
 
 const countNumberOfElements = (arr10) => {
-  const newArr10 = arr10.reduce((acc, item, index) => {
-    acc == index++;
+  const newArr10 = arr10.reduce((acc2, item, index) => {
+    acc2 == index++;
   });
   return newArr10;
 };
 
-addValues([1, 2, 3, 4]);
+//didnt work I'll try again later
+
+addValues([1, 2, 3, 4]); // => 4
