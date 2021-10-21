@@ -1,4 +1,4 @@
-// challenge 1
+// challenge 1 DONE
 
 const checkValues = (obj, value) => {
   if (Object.values(obj).includes(value)) {
@@ -10,7 +10,9 @@ const checkValues = (obj, value) => {
 checkValues({ name: "ahmed", age: 15 }, 15); // => true
 checkValues({ name: "ahmed", age: 15 }, 20); // => false
 
-// challenge 2
+//-------------------------------------------------------------
+
+// challenge 2 DONE
 
 const courseInfo = {
   name: "Code 301",
@@ -34,7 +36,7 @@ getCourseKeys(courseInfo); // => ['name', 'duration', 'topics', 'finalExam']
 
 //-------------------------------------------------------------
 
-//challenge 3
+//challenge 3 DONE
 const phoneInfo = {
   GraceHopper: "222-303-5938",
   AdaLovelace: "222-349-9842",
@@ -50,7 +52,7 @@ const phoneInfo = {
 const updateNumbers = (obj3) => {
   let arr3 = [];
   for (const key in obj3) {
-    arr3.push(obj3.key, obj3.value);
+    arr3.push(`${key} : ${phoneInfo[key]}`);
   }
 
   return arr3;
@@ -58,31 +60,37 @@ const updateNumbers = (obj3) => {
 
 updateNumbers(phoneInfo);
 
-//challenge 4
+//-------------------------------------------------------------
 
-// const PassedOrFailed = function (studentGrades) {
-//     let res;
-//     if
-//     }
+//challenge 4 DONE
 
-// };
+const PassedOrFailed = function (studentGrades) {
+  for (let i in studentGrades) {
+    if (studentGrades[i]["grade"] / studentGrades[i]["total"] < 0.5) {
+      return "The student have failed.";
+    }
+  }
+  return "The student passed!";
+};
 
-// const studentOne = {
-//   math: { grade: 70, total: 120 },
-//   english: { grade: 80, total: 100 },
-//   art: { grade: 90, total: 100 }
-// };
+const studentOne = {
+  math: { grade: 70, total: 120 },
+  english: { grade: 80, total: 100 },
+  art: { grade: 90, total: 100 },
+};
 
-// const studentTwo = {
-//   math: { grade: 59, total: 120 },
-//   english: { grade: 80, total: 100 },
-//   art: { grade: 90, total: 100 }
-// };
+const studentTwo = {
+  math: { grade: 59, total: 120 },
+  english: { grade: 80, total: 100 },
+  art: { grade: 90, total: 100 },
+};
 
-// PassedOrFailed(studentOne); // =>  "The student have passed"
-// PassedOrFailed(studentTwo); // =>  "The student have failed"
+PassedOrFailed(studentOne); // =>  "The student have passed"
+PassedOrFailed(studentTwo); // =>  "The student have failed"
 
-//challenge 5
+//-------------------------------------------------------------
+
+//challenge 5 DONE
 
 const totalCharacters = (arr5) => {
   const newArr5 = arr5.reduce((acc, item, index) => {
@@ -95,10 +103,41 @@ const totalCharacters = (arr5) => {
 
 totalCharacters(["abc", "yz"]); // => 5
 
-//challenge 6
+//-------------------------------------------------------------
 
-// const houseSize = (arr6) => {
-//   const sizes = arr6.
-// };
+//challenge DONE
 
-// houseSize(["Stark", 7, "Arryn", 3]); //[{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }]
+const houseSize = (arr6) => {
+  const sizesArr = [];
+  for (let e = 0; e < arr6.length; e += 2) {
+    sizesArr.push({ house: arr6[e], members: arr6[e + 1] });
+  }
+  return sizesArr;
+};
+
+houseSize(["Stark", 7, "Arryn", 3]); //[{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }]
+
+//-------------------------------------------------------------
+
+// challenge 7 DONE
+
+const uniqueDogs = {
+  max: { breed: "Labrador Retriever", color: "blond" },
+  rex: { breed: "German Shepherd", color: "black and brown" },
+  lucy: { breed: "Bulldog", color: "white" },
+  lucifer: { breed: "Chihuahua", color: "brown" },
+};
+
+const createDog = function (name, dogBreed, furColor) {
+  for (const added in uniqueDogs) {
+    if (added === name) {
+      return "The dog isn't unique enough :(";
+    }
+  }
+
+  uniqueDogs[name] = { breed: dogBreed, color: furColor };
+  return "Added the dog successfully";
+};
+
+// createDog("luna", "Husky", "black and white"); // => "Added the dog successfully"
+// createDog("rex", "Golden Retriever", "blond"); // => "The dog isn't unique enough :("
